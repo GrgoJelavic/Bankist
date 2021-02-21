@@ -315,34 +315,3 @@ btnSort.addEventListener('click', function(e) {
 
     sorted = !sorted;
 })
-
-// const num = 388456565543.23
-
-// console.log('Croatia: ', new Intl.NumberFormat('hr-HR').format(num));
-
-// const deposits = currentAccount.movements.filter(function(mov) {
-//     return mov > 0;
-// })
-
-// const withdrawals = currentAccount.movements.filter(mov => mov < 0);
-
-// const balance = currentAccount.movements.reduce((acc, curr) => acc + curr, 0);
-
-// const maxMov = currentAccount.movements.reduce((acc, mov) => {
-//     if (acc > mov) return acc;
-//     else return mov
-// }, currentAccount.movements[0]);
-
-// //console.log(maxMov);
-
-// const currencies = new Map([
-//     ['USD', 'United States dollar'],
-//     ['EUR', 'Euro'],
-//     ['GBP', 'Pound sterling'],
-// ]);
-
-// const eurToUsd = 1.1;
-// const totalDepositsUSD = currentAccount.movements
-//     .filter(mov => mov > 0)
-//     .map(mov => mov * eurToUsd)
-//     .reduce((acc, mov) => acc + mov, 0)
