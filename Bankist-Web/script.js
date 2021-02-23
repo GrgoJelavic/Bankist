@@ -52,16 +52,28 @@ document.querySelector('.nav__links').addEventListener('click', function(e) {
 
 //Cookie Message
 
-const message = document.createElement('div');
-message.classList.add('cookie-message');
-message.innerHTML =
-    'We use cookied for improved functionality and analytics. <button class="btn btn--close-cookie">Got it!</button>';
-header.append(message);
-document
-    .querySelector('.btn--close-cookie')
-    .addEventListener('click', function() {
-        message.parentElement.removeChild(message); // message.remove();
-    });
+// const message = document.createElement('div');
+// message.classList.add('cookie-message');
+// message.innerHTML =
+//     'We use cookies for improved functionality and analytics. <button class="btn btn--close-cookie">Got it!</button>';
+// header.append(message);
+// document
+//     .querySelector('.btn--close-cookie')
+//     .addEventListener('click', function() {
+//         message.parentElement.removeChild(message); // message.remove();
+//     });
+const cookieContainer = document.querySelector('.cookie-container');
+const cookieButton = document.querySelector('.btn-cookie');
+
+cookieButton.addEventListener('click', () => {
+    cookieContainer.classList.remove("active");
+    localStorage.setItem("CookieBannerDisplayed", "true");
+});
+
+setTimeout(() => {
+    if (!localStorage.setItem("CookieBannerDisplayed", "true"))
+        cookieContainer.classList.add('active');
+}, 2000);
 
 
 //Smooth Scrooling Learnmore
@@ -259,7 +271,6 @@ const slider = function() {
     }
     init();
 
-
     //Event handlers
     buttonRight.addEventListener('click', nextSlide);
     buttonLeft.addEventListener('click', prevSlide);
@@ -279,3 +290,22 @@ const slider = function() {
     });
 };
 slider();
+
+
+//Lifecycle DOM events
+
+document.addEventListener('DOMContentLoaded', function(e) {
+    console.log("HTML pasrsed and DOM tree built!", e);
+});
+
+window.addEventListener('load', function(e) {
+    console.log('Page fully loaded');
+});
+
+window.addEventListener('beforeunload', function(e) {
+    e.preventDefault();
+
+    console.log(e);
+
+    e.returnValue = '';
+});
